@@ -1,5 +1,25 @@
 import Image from 'next/image'
 
+// For Improving SEO
+export async function generateMetadata({ params, searchParams }) {
+  const product = await getProduct(params.id);
+  return {
+    title: product.title,
+  };
+}
+// Output
+// <head>
+//    <title>The Unique Product</title>
+// </head>
+
+export const metadata = {
+  title: 'Home',
+};
+// Output
+// <head>
+//    <title>Home</title>
+// </head>
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
